@@ -1,0 +1,61 @@
+{% extends 'barra.html' %}
+
+{% block content %}
+
+
+<!-- Para este caso, en el formulario en action hay que poner la url relacionada con el funcion -->
+<!-- <form action="{% url 'completado' tarea.id %}" method="post"> 
+    {% csrf_token %}
+
+    <button>
+        Completado
+    </button>
+</form> -->
+
+
+<!-- Otra forma mucho mas facil -->
+
+
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <form action="" method="post" class="card card-body">
+                <h2 class="text-center">{{tarea.titulo}}</h2>
+
+                {{error}}
+
+                {% csrf_token %}
+                {{formulario}}
+
+                
+
+                
+            <div class="d-flex justify-content-between card card-body">
+
+                <button class="btn btn-primary mb-2">Actualizar</button>
+                
+
+                {% if tarea.completado %}
+                <a href="{% url 'no_completado' tarea.id %}" class="btn btn-primary">No completado</a>
+                {% else %}
+                <a href="{% url 'completado' tarea.id %}" class="btn btn-primary">Completado</a>
+                {% endif %}
+
+                <a href="{% url 'eliminar' tarea.id %}" class="btn btn-primary mt-2">Eliminar Tarea</a>
+
+            </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+</main>
+
+
+
+{% endblock %}

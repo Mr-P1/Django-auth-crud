@@ -1,0 +1,30 @@
+{% extends 'barra.html' %}
+
+{% block content %}
+
+
+
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <form action="" method="post" class="card card-body mt-4">
+                <h1 class="text-center">Crear Tareas</h1>
+
+                {{error}}
+
+                {% csrf_token %}
+                {{formulario}}
+
+                <a class="btn btn-primary mt-3"> Crear Tarea</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

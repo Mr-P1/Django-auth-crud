@@ -1,0 +1,52 @@
+{% extends 'barra.html' %}
+
+{% block content %}
+
+
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            
+
+            <ul class="list-group">
+                <h1 class="text-center">Tareas</h1>
+                {% for tarea in tareas %}
+
+                <li class="list-group-item text-center mt-2">
+                    {% if tarea.importante %}
+                    <h2 class="text-success">{{tarea.titulo}}</h2>
+                    {% else %}
+                    <h2 >{{tarea.titulo}}</h2>
+                    {% endif %}
+
+                    <p>{{tarea.descripcion}}</p>
+                    <p>Esta tarea fue creada el {{tarea.creacion}}</p>
+
+                    {% if tarea.completado %}
+                    <h3>esta Tarea se completo el {{tarea.completado}}</h3>
+                    {% else %}
+                    <h3>Tarea no completada aun </h3>
+                    {% endif %}
+                    
+
+
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-primary " href="{% url 'detalle_tarea' tarea.id %}"> Ver detalle</a>
+                    </div>
+                   
+
+
+                </li>
+
+                {% endfor %}
+            </ul>
+
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
